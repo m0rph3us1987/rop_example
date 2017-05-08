@@ -227,6 +227,12 @@ function exploit()
 			return setU64((addr - u32base) >>> 2, val);
 		}
 		
+		/*
+		TODOs:
+			1) Find a lot of gadgets
+			2) Find correct values for variables below
+			3) successfully trigger rop execution!
+		*/
 		var spraysiz = 0;		
 		var el_vtable_ptr = 0;
 		var vtable_off = 0;
@@ -234,17 +240,7 @@ function exploit()
 		var vtablesize = 0;
 		var HeapBase = 0;
 		var stack_pivot = 0;
-		var ropChainAdr = 0;
-		
-		if(!PS4){
-			spraysiz = 0x50000;
-			vtable_off = 0;
-			vtablesize = 0;
-			HeapBase = 0;
-			fkvtable_off = 0;
-			stack_pivot = 0;
-		}
-		
+		var ropChainAdr = 0;		
 		
 		/* 
            Spray memory with ArrayBuffers that will be used to get
